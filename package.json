@@ -21,9 +21,9 @@
   "homepage": "https://github.com/indown/l-ui#readme",
   "devDependencies": {
     "@types/html-webpack-plugin": "^3.2.3",
-    "@types/lodash": "^4.14.153",
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
+    "clean-webpack-plugin": "^3.0.0",
     "html-webpack-plugin": "^4.3.0",
     "ts-loader": "^7.0.5",
     "typescript": "^3.9.3",
