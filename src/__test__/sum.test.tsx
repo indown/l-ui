@@ -8,7 +8,7 @@ import Sum from '../sum'
 import React from 'react';
 import renderer from 'react-test-renderer';
 
-test('div',() => {
+test('Sum is a react component!',() => {
   const component = renderer.create(
     <Sum></Sum>
   );
