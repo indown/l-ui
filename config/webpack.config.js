@@ -4,7 +4,6 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.ts",
-  // devtool: "inline-source-map",
   module: {
     rules: [
       {
@@ -28,19 +27,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "index.html",
     }),
-  ],
-  externals: {
-    'react': {
-      commonjs: "react",
-      commonjs2: "react",
-      amd: "react",
-      root: "react",
-    },
-    'react-dom': {
-      commonjs: "ReactDOM",
-      commonjs2: "ReactDOM",
-      amd: "ReactDOM",
-      root: "ReactDOM",
-    },
-  },
+  ]
 };
