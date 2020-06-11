@@ -5,9 +5,3 @@ exports[`Sum is a react component! 1`] = `
   11111
 </div>
 `;
-
-exports[`div 1`] = `
-<div>
-  11111
-</div>
-`;

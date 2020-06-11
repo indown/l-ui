@@ -12,4 +12,10 @@ module.exports = {
   transformIgnorePatterns:["<rootDir>/node_modules/"],
   testRegex: '/__test__/.*\\.(spec|test)\\.(js|jsx|ts|tsx)?$',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    "**/*.{js,jsx,ts,tsx}",
+    "!**/node_modules/**",
+    "!**/vendor/**"
+  ]
 };
