@@ -17,14 +17,14 @@ jobs:
     executor: node
     steps:
       - checkout
-      - run: yarn install
       - persist_to_workspace: 
           root: .
           path:
             - node_modules
+      - run: yarn install
   test:
     executor: node
     steps:
       - attach_workspace:
-          root: .
+          at: .
       - run: yarn test
