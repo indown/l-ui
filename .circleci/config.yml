@@ -24,6 +24,7 @@ jobs:
   test:
     executor: node
     steps:
+      - checkout
       - attach_workspace:
           at: .
       - run: yarn test
