@@ -1,0 +1,32 @@
+version: 2.1
+executors:
+  node:
+    docker:
+      - image: circleci/node:10
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
+jobs:
+  install:
+    executor: node
+    steps:
+      - checkout
+      - run: yarn install
+
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+            - package.json
+  test:
+    executor: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: yarn test
