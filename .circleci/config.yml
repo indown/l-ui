@@ -1,0 +1,25 @@
+version: 2.1
+executors:
+  node:
+    docker:
+      - image: circleci/node:10
+workflows:
+  version: 2
+
+  btd:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
+
+jobs:
+  install:
+    executor: node
+    steps:
+      - checkout
+      - run: yarn install
+  test:
+    executor: node
+    steps:
+      - run: yarn test
