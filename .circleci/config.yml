@@ -5,20 +5,27 @@ executors:
       - image: circleci/node:10
 workflows:
   version: 2
-  build_and_test:
+
+  ci:
     jobs:
-      - build
-      - test
+      - install
+      - test:
+          requires:
+            - install
+
 jobs:
-  build:
+  install:
     executor: node
     steps:
       - checkout
-      - run: npm install
-      - run: npm run build
+      - run: yarn install
+      - persist_to_workspace: 
+        root: .
+        path:
+          - node_modules
   test:
     executor: node
     steps:
-      - checkout
-      - run: npm install
-      - run: npm run test
+      - attach_workspace:
+        root: .
+      - run: yarn test
