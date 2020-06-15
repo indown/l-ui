@@ -17,13 +17,18 @@ jobs:
     executor: node
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 18.06.0-ce
-      - persist_to_workspace: 
-          root: .
-          path:
-            - node_modules
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package.json" }}
       - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
   test:
     executor: node
     steps:
