@@ -1,0 +1,39 @@
+version: 2.1
+executors:
+  node:
+    docker:
+      - image: circleci/node:10
+workflows:
+  version: 2
+  ci:
+    jobs:
+      - install
+      - test:
+          requires:
+            - install
+jobs:
+  install:
+    executor: node
+    steps:
+      - checkout
+      - run: yarn install
+      - save_cache: # Caches dependencies with a cache key
+          key: v1-repo-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+      - restore_cache: # Restores the cached dependency.
+          key: v1-repo-{{ checksum "package.json" }}
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
+            - package.json
+  test:
+    executor: node
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run: yarn ci 
+      - store_test_results:
+          path: ci-test-result
