@@ -2,7 +2,7 @@
 
 exports[`<Icon /> icon is a react component 1`] = `
 <svg
-  className="test"
+  className="l-icon"
 >
   <use
     xlinkHref="#qq"

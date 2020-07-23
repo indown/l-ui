@@ -1,7 +1,7 @@
 import Icon from '../icon'
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { mount } from 'enzyme'
+import { mount, render } from 'enzyme'
 
 describe('<Icon />', () => {
   it('icon is a react component', () => {
@@ -15,5 +15,9 @@ describe('<Icon />', () => {
     const wrapper = mount(<Icon type='qq' onClick={fn}/>)
     wrapper.find('svg').simulate('click')
     expect(fn).toBeCalledTimes(1)
+  })
+  it('icon has this className', () => {
+    const wrapper = render(<Icon className='test-classname' type='qq'/>)
+    expect(wrapper.hasClass('test-classname'))
   })
 })
