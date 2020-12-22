@@ -8,7 +8,7 @@ function App() {
         <div>
             <Icon type='qq' />
             <Icon type='wechat' />
-            <Button />
+            <Button>按钮</Button>
         </div>
     )
 }
