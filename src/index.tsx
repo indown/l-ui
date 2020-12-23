@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Icon from './lib/icon/icon'
+import Icon from './lib/icon/index'
 import Button from './lib/Button/index'
 
 function App() {

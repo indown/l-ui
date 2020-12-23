@@ -1,4 +1,4 @@
-import Icon from '../icon'
+import Icon from '..'
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { mount, render } from 'enzyme'
