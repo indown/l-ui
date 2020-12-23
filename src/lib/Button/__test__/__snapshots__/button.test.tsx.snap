@@ -1,7 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button /> Button is a react component 1`] = `
-<button>
-  button
-</button>
-`;
+exports[`<Button /> Button is a react component 1`] = `<button />`;
